@@ -228,6 +228,7 @@ body.mode-prod .lina-only{display:none!important}
 .beats .t{font-size:.74rem;font-weight:600;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:2px}
 .beats .v{font-size:.94rem}
 .beats .v small{display:block;color:var(--muted);font-size:.8rem;margin-top:2px}
+mark.tbd{background:var(--nude-soft);color:var(--mocha);border:1px dashed var(--mocha);border-radius:6px;padding:0 5px;font-weight:600;font-size:.88em;white-space:nowrap}
 .copy-box{background:var(--ground);border:1px solid var(--rule);border-radius:16px;padding:16px 18px;white-space:pre-line;font-size:.94rem;line-height:1.6}
 .btn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--ink);background:var(--ink);color:var(--ground);border-radius:999px;padding:10px 16px;font-size:.84rem;font-weight:600;cursor:pointer;text-decoration:none;transition:transform .2s,background .2s}
 .btn:hover{transform:translateY(-1px)}
@@ -763,6 +764,7 @@ function $$(s,r){return Array.prototype.slice.call((r||document).querySelectorAl
 function h(tag,attrs,html){var e=document.createElement(tag);if(attrs)for(var k in attrs){if(k==="class")e.className=attrs[k];else if(k==="style")e.setAttribute("style",attrs[k]);else e.setAttribute(k,attrs[k]);}if(html!=null)e.innerHTML=html;return e}
 function store(k,v){try{if(v===undefined)return localStorage.getItem(k);localStorage.setItem(k,v)}catch(e){return null}}
 function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+function tbd(s){return esc(s).replace(/\[\[(.+?)\]\]/g,'<mark class="tbd" title="Pendiente">$1</mark>')}
 
 /* ================= DATA ================= */
 var PIL={
@@ -802,14 +804,14 @@ var POSTS=[
   refs:[{u:"p/DcUhOs3lMVr/",who:"@cosmetologia.integrativa",t:"«No existen pieles perfectas. Existen pieles reales.»",why:"El manifiesto que más se parece a tu frase."},{u:"p/DbopLsvkdB7/",who:"@vane.esteticista.spa",t:"«Las redes te hicieron creer que una piel normal debe verse perfecta…»",why:"El mismo tema, llevado a lo emocional."}],
   prod:"Plantilla de carrusel tipográfico (manual). 6 láminas 1080×1350. Portada con la palabra «perfecta» tachada a mano, como en este plan."},
  {id:"r1",day:3,f:"reel",p:1,wk:1,title:"No te prometo milagros",cover:"No te prometo milagros.",
-  hook:"No te prometo milagros.",dur:"20 – 25 s",
-  beats:[["0–3 s","Tú a cámara, plano medio en el consultorio: «No te prometo milagros.»","El texto en pantalla dice lo mismo."],["3–8 s","«Te prometo algo mejor: saber qué necesita tu piel antes de tocarla.»","Corte a ti revisando una piel con la lupa."],["8–15 s","«Aquí nada es de receta. Tu protocolo es solo tuyo y sigo pendiente de ti después de la cita.»","Manos preparando la cabina, detalle de un mensaje de seguimiento."],["15–22 s","«La piel perfecta no existe. La piel cuidada sí.»","Vuelta a cámara."],["Cierre","Texto: «Agenda tu valoración · WhatsApp en el perfil»",""]],
+  hook:"En mi consultorio no te voy a prometer milagros.",dur:"20 – 25 s",
+  beats:[["0–3 s","Gancho · tú a cámara: «En mi consultorio no te voy a prometer milagros.»","Plano medio en el consultorio. El texto en pantalla dice lo mismo."],["3–9 s","«Te prometo algo mucho más importante: entender qué necesita realmente tu piel antes de empezar cualquier tratamiento.»","Corte a ti revisando una piel con la lupa."],["9–16 s","«Cada piel es totalmente diferente, por eso tu protocolo también lo es. Además, sigo pendiente de ti después de la cita.»","Manos preparando la cabina, detalle de un mensaje de seguimiento."],["16–22 s","Cierre: «Porque la piel perfecta no existe. La piel cuidada sí.»","Vuelta a cámara."],["Final","Texto en pantalla: «Agenda tu valoración · WhatsApp en el perfil»",""]],
   copy:"No te prometo milagros. Te prometo criterio, tiempo y un plan hecho para tu piel.\n\nSi buscas resultados en una sola sesión, no soy para ti. Si quieres una piel cuidada de verdad, te espero en el consultorio.\n\n📍 Cali · Agenda tu valoración por WhatsApp.",
   shoot:"Bloque A · Tú a cámara",
   refs:["vaneMilagros"],prod:"Sin música encima de la voz, o muy baja. Subtítulos cortos en la zona inferior. La frase del segundo 0 tiene que funcionar sin sonido."},
  {id:"r2",day:6,f:"reel",p:2,wk:2,title:"Limpieza Piel Cuidada",cover:"Antes de todo, la base.",
-  hook:"Nada de lo que te apliques funciona igual sobre una piel sin preparar.",dur:"30 – 40 s",
-  beats:[["0–2 s","Texto sobre un plano detalle: «¿Peeling sin limpieza previa?»","La analogía de Bellezze, llevada a tu tono."],["2–10 s","Tu voz en off: «La limpieza no es el paso básico. Es la base.»","Sonido real de la cabina: agua, vapor, guantes."],["10–25 s","Fases con nombre en pantalla: preparar, limpiar, calmar.","Planos detalle de manos, extracción y aparatología. Luz cálida."],["25–35 s","«Por eso mi limpieza dura lo que tu piel necesita, no lo que marca un reloj.»","La clienta abre los ojos, piel en calma."],["Cierre","«Limpieza Piel Cuidada · Agenda por WhatsApp»",""]],
+  hook:"¿Peeling sin limpiar la piel primero?",dur:"30 – 40 s",
+  beats:[["0–2 s","Gancho, texto sobre un plano detalle: «¿Peeling sin limpiar la piel primero?»","La analogía de Bellezze, llevada a tu tono."],["2–10 s","Tu voz en off: «La limpieza no es el paso básico. Es la base. Yo no empiezo un tratamiento sin preparar primero la piel.»","Sonido real de la cabina: agua, vapor, guantes."],["10–22 s","«Primero preparamos. Después limpiamos. Y finalmente calmamos.»","Una fase por frase, con su nombre en pantalla. Planos detalle de manos, extracción y aparatología. Luz cálida."],["22–32 s","«Cada paso tiene un propósito y cada piel necesita su propio tiempo. Yo no trabajo contra el reloj. Trabajo a favor de tu piel.»","La clienta abre los ojos, piel en calma."],["Cierre","«Agenda tu cita por WhatsApp.»","Con «Limpieza Piel Cuidada» en pantalla."]],
   copy:"La limpieza no es el paso «básico». Es la base.\n\nSin ella, cualquier peeling o activo rinde a medias. Por eso mi Limpieza Piel Cuidada no tiene un tiempo fijo: dura lo que tu piel necesita.\n\n¿Hace cuánto no te haces una? Escríbeme y te cuento cuál es la tuya.",
   shoot:"Bloque B · Procedimiento con clienta 1",
   refs:["bellezzeTerreno","liliLuxury","integrativaDrenaje","camilaDermapen"],prod:"Audio directo protagonista (micrófono cerca de las manos). Nada de música de tendencia. Texto en una caja neutra, como Bellezze, con tu tipografía."},
@@ -821,8 +823,8 @@ var POSTS=[
   refs:[{u:"p/DbWWxrUGbUe/",who:"@adrianagiraldo.cosmetologa",t:"«Tu primera cita comienza aquí»",why:"Carrusel pensado para agendar: qué esperar y cómo llegar."},{u:"reel/DZgQFwzzXHN/",who:"@adrianagiraldo.cosmetologa",t:"«¿Vienes desde El Tesoro? Llegar es muy fácil»",why:"Le quita miedo a la primera visita."}],
   prod:"Necesitamos la dirección exacta y una referencia para llegar. Es el carrusel al que vamos a mandar a quien comente «¿precio?» o «me interesa»."},
  {id:"r3",day:9,f:"reel",p:1,wk:2,title:"Y aparece el granito",cover:"Y justo antes, el granito.",
-  hook:"Tenías todo listo para el sábado… y aparece el granito.",dur:"25 – 30 s",
-  beats:[["0–3 s","Tú frente al espejo, en tono ligero: «Tenías todo listo para el sábado… y aparece el granito.»",""],["3–7 s","«Lo primero que haces: tocarlo. Error.»","Mano que se acerca a la cara y se detiene."],["7–20 s","Lo que sí: no lo explotes, limpia suave, aplica lo que te indicó tu cosmiatra y no lo tapes con capas de maquillaje.","Tres textos numerados en pantalla."],["20–27 s","«Y si te pasa cada mes, no es el granito: es tu piel pidiéndote un plan.»","Vuelta a cámara."],["Cierre","«Escríbeme y lo revisamos»",""]],
+  hook:"Alto. Si tenías todo listo para la noche y te salió un granito, no lo toques.",dur:"25 – 30 s",
+  beats:[["0–4 s","Gancho · tú frente al espejo: «Alto. Si tenías todo listo para la noche y te salió un granito, no lo toques.»","Tono ligero."],["4–8 s","«Lo primero que hacemos casi todas es apretarlo. Y eso solo lo empeora.»","Mano que se acerca a la cara y se detiene."],["8–20 s","«Mejor haz esto: limpia la zona. Aplica [[producto por definir con Lina]], que ayuda a que se desinflame. Y no lo tapes con capas de maquillaje.»","Lina propone un producto que ayude a reducirlo rápido. Tres textos numerados en pantalla."],["20–27 s","Cierre: «Ey, pero si siempre aparece antes de salir, es tu piel pidiéndome ayuda. Escríbeme y lo revisamos.»","Vuelta a cámara."]],
   copy:"Tenías todo listo… y aparece el granito. 😮‍💨\n\nNo lo toques. De verdad.\n\nY si te pasa cada mes, no es mala suerte: es tu piel pidiéndote un plan. Escríbeme y lo miramos juntas.",
   shoot:"Bloque A · Tú a cámara",
   refs:["vaneGranito"],prod:"Es la única pieza con humor del mes: gesto, no chiste. Nada de gritos ni efectos de sonido."},
@@ -841,14 +843,14 @@ var POSTS=[
   prod:"Pensado para guardarse. Cada lámina con un color de la paleta. Las historias del 15 repiten estas preguntas como encuesta."},
  {id:"r5",day:16,f:"reel",p:5,wk:3,title:"Si tuviera un evento en diciembre",cover:"Diciembre se prepara en octubre.",
   hook:"Si tuviera un evento en diciembre, esto haría desde octubre.",dur:"35 – 45 s",
-  beats:[["0–3 s","Tú a cámara: «Si tuviera un evento en diciembre, esto haría desde octubre.»","El gancho abre una cuenta regresiva."],["3–10 s","«8 semanas antes: limpieza profunda y valoración.»","Texto grande: 8 SEMANAS."],["10–18 s","«6 semanas antes: empiezo a tratar lo que me preocupa, acné o manchas.»",""],["18–26 s","«4 semanas antes: un peeling pensado para mi piel.»",""],["26–33 s","«2 semanas antes: hidratación y luminosidad.»",""],["33–40 s","«La semana del evento: nada nuevo. Nada.» Una piel bonita no se consigue la noche anterior, se planea.","La última semana es la que sostiene la atención hasta el final."]],
+  beats:[["0–3 s","Gancho · tú a cámara: «Si tuviera un evento en diciembre, esto haría desde octubre.»","El gancho abre una cuenta regresiva."],["3–10 s","«8 semanas antes: [[lo que haría Lina]].»","Texto grande: 8 SEMANAS."],["10–18 s","«6 semanas antes: [[lo que haría Lina]].»",""],["18–26 s","«4 semanas antes: [[lo que haría Lina]].»",""],["26–33 s","«2 semanas antes: [[lo que haría Lina]].»",""],["33–40 s","Cierre: «La última semana, nada nuevo. NADA. Una piel bonita no se consigue la noche anterior: se planea.»","La última semana es la que sostiene la atención hasta el final."]],
   copy:"Una piel bonita para diciembre no se consigue la noche anterior. Se planea. ✨\n\nSi tienes un grado, una boda o una fiesta en diciembre, este es el momento de empezar. Escríbeme y armamos tu calendario.",
   shoot:"Bloque A · Tú a cámara",
   refs:["camilaEvento",{u:"p/Dc9FOadFGQL/",who:"@cosmetologia.integrativa",t:"«¿Estás por tener un evento especial?»",why:"El mismo mensaje en carrusel."}],
-  prod:"Los nombres de los tratamientos se ajustan a lo que tú haces. No prometemos resultados por semana, solo el orden."},
+  prod:"Preguntarle a Lina qué haría ella 8, 6, 4 y 2 semanas antes del evento. No prometemos resultados por semana, solo el orden."},
  {id:"r6",day:20,f:"reel",p:4,wk:4,title:"Lo que uso en mi propia piel",cover:"Lo que uso en mi piel.",
-  hook:"Muchas me preguntan qué uso yo.",dur:"25 – 35 s",
-  beats:[["0–3 s","«Muchas me preguntan qué uso yo en mi piel.»","Tú con tus productos en la mano."],["3–15 s","Mañana: limpiador, sérum y protector EltaMD, y por qué lo reaplicas.","Planos detalle de cada producto con luz de ventana."],["15–25 s","Noche: limpieza, activo e hidratante de ÁNIMUS LAB.",""],["25–32 s","«Pero ojo: esta es mi rutina. La tuya la armamos juntas.»","Vuelta a cámara."]],
+  hook:"¿Qué productos usa una cosmetóloga en su día a día?",dur:"25 – 35 s",
+  beats:[["0–3 s","Gancho: «¿Qué productos usa una cosmetóloga en su día a día?»","Tú con tus productos en la mano."],["3–7 s","«Muchos me preguntan qué uso en mi piel.»",""],["7–14 s","«En la mañana: [[por confirmar con Lina]].»","Planos detalle de cada producto con luz de ventana."],["14–20 s","«En la tarde: [[por confirmar con Lina]].»",""],["20–26 s","«Y antes de dormir: [[por confirmar con Lina]].»",""],["26–32 s","Cierre: «Pero ojo: esta es mi rutina. La tuya la armamos juntas.»","Vuelta a cámara."]],
   copy:"Mi rutina real, sin patrocinio disfrazado. 🤍\n\nUso ÁNIMUS LAB y EltaMD en cabina y en casa. Pero lo que le sirve a mi piel no es lo que necesariamente le sirve a la tuya. Tu rutina la armamos juntas en la valoración.",
   shoot:"Bloque E · Producto y tu rutina",
   refs:["mariaVisita",{u:"reel/DPUtZysEWoc/",who:"@vane.esteticista.spa",t:"«5 sérums que SÍ funcionan para el acné»",why:"Producto con criterio profesional."}],
@@ -921,11 +923,13 @@ var NEEDS=[
  ["Dos clientas para testimonio","Una sale en octubre y la otra queda para noviembre."],
  ["Una modelo con maquillaje de fantasía","Para el reel del Reset (bloque F)."],
  ["Fotos de antes y después de un caso","Acné o manchas, con autorización, para el carrusel del 22."],
- ["Tu rutina real con ÁNIMUS LAB y EltaMD","Qué usas de mañana y de noche, y los productos en cabina."],
+ ["Tu rutina real con ÁNIMUS LAB y EltaMD","Qué usas en la mañana, en la tarde y antes de dormir (reel del 20)."],
  ["Dos mudas neutras","Tu uniforme y una prenda tuya, sin estampados."],
  ["Cuántos cupos de Reset abres","Del 3 al 7 de noviembre."],
  ["Dirección y referencia para llegar","Para el carrusel de la primera cita."],
- ["Autorizaciones de imagen firmadas","Te enviamos el formato."]
+ ["Autorizaciones de imagen firmadas","Te enviamos el formato."],
+ ["Qué harías antes de un evento","8, 6, 4 y 2 semanas antes (reel del 16)."],
+ ["Un producto para desinflamar un granito","El que recomiendas para reducirlo rápido (reel del 9)."]
 ];
 var QUIZ=[
  {q:"Pasta de dientes sobre el granito",a:"truco",x:"Irrita la piel y puede dejar una mancha donde antes solo había un granito."},
@@ -1051,7 +1055,7 @@ function renderSheet(){
   body.innerHTML=html;
   var pane=$("#pane");
   if(tab==="guion"){
-    if(p.beats)pane.innerHTML='<ol class="beats">'+p.beats.map(function(b){return '<li><span class="t">'+b[0]+'</span><span class="v">'+esc(b[1])+(b[2]?"<small>"+esc(b[2])+"</small>":"")+"</span></li>"}).join("")+"</ol>";
+    if(p.beats)pane.innerHTML='<ol class="beats">'+p.beats.map(function(b){return '<li><span class="t">'+b[0]+'</span><span class="v">'+tbd(b[1])+(b[2]?"<small>"+esc(b[2])+"</small>":"")+"</span></li>"}).join("")+"</ol>";
     else pane.innerHTML='<ol class="slides">'+p.slides.map(function(s){return "<li><span>"+esc(s)+"</span></li>"}).join("")+"</ol>";
     pane.innerHTML+='<div class="note prod">'+esc(p.prod)+"</div>";
   }else if(tab==="copy"){
